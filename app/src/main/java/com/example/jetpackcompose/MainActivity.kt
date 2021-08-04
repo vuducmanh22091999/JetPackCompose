@@ -19,12 +19,16 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure
+import java.time.format.TextStyle
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,6 +113,7 @@ fun InputPassword() {
 fun ForgotPassword() {
     Text(
         text = stringResource(id = R.string.forgot_password),
+        textDecoration = TextDecoration.Underline,
         color = colorResource(id = R.color.blue),
         textAlign = TextAlign.End,
         modifier = Modifier
@@ -152,11 +157,18 @@ fun LoginFacebook() {
             .border(1.dp, color = colorResource(id = R.color.grey333)),
         contentAlignment = Alignment.Center
     ) {
-        Row {
+        ConstraintLayout {
+            val (image, text) = createRefs()
             Image(
                 painter = painterResource(id = R.drawable.ic_facebook),
-                contentDescription = "",
-                modifier = Modifier.size(20.dp),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(20.dp)
+                    .constrainAs(image) {
+                        top.linkTo(parent.top)
+                        bottom.linkTo(parent.bottom)
+                        start.linkTo(parent.start, margin = 64.dp)
+                    },
                 alignment = Alignment.CenterStart
             )
             Text(
@@ -166,7 +178,13 @@ fun LoginFacebook() {
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 16.dp)
+                    .padding(vertical = 8.dp)
+                    .constrainAs(text) {
+                        top.linkTo(image.top)
+                        bottom.linkTo(image.bottom)
+                        start.linkTo(parent.start)
+                        end.linkTo(parent.end)
+                    }
             )
         }
     }
@@ -180,13 +198,18 @@ fun LoginGoogle() {
             .border(1.dp, color = colorResource(id = R.color.grey333)),
         contentAlignment = Alignment.Center
     ) {
-        Row {
+        ConstraintLayout {
+            val (image, text) = createRefs()
             Image(
                 painter = painterResource(id = R.drawable.ic_google),
-                contentDescription = "",
+                contentDescription = null,
                 modifier = Modifier
-                    .size(30.dp)
-                    .padding(start = 20.dp),
+                    .size(20.dp)
+                    .constrainAs(image) {
+                        top.linkTo(parent.top)
+                        bottom.linkTo(parent.bottom)
+                        start.linkTo(parent.start, margin = 64.dp)
+                    },
                 alignment = Alignment.CenterStart
             )
             Text(
@@ -196,7 +219,13 @@ fun LoginGoogle() {
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 16.dp)
+                    .padding(vertical = 8.dp)
+                    .constrainAs(text) {
+                        top.linkTo(image.top)
+                        bottom.linkTo(image.bottom)
+                        start.linkTo(parent.start)
+                        end.linkTo(parent.end)
+                    }
             )
         }
     }
@@ -210,11 +239,18 @@ fun LoginAppleID() {
             .border(1.dp, color = colorResource(id = R.color.grey333)),
         contentAlignment = Alignment.Center
     ) {
-        Row {
+        ConstraintLayout {
+            val (image, text) = createRefs()
             Image(
                 painter = painterResource(id = R.drawable.ic_apple),
-                contentDescription = "",
-                modifier = Modifier.size(20.dp),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(20.dp)
+                    .constrainAs(image) {
+                        top.linkTo(parent.top)
+                        bottom.linkTo(parent.bottom)
+                        start.linkTo(parent.start, margin = 64.dp)
+                    },
                 alignment = Alignment.CenterStart
             )
             Text(
@@ -224,7 +260,13 @@ fun LoginAppleID() {
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 16.dp)
+                    .padding(vertical = 8.dp)
+                    .constrainAs(text) {
+                        top.linkTo(image.top)
+                        bottom.linkTo(image.bottom)
+                        start.linkTo(parent.start)
+                        end.linkTo(parent.end)
+                    }
             )
         }
     }
@@ -234,6 +276,7 @@ fun LoginAppleID() {
 fun RegisterFromHere() {
     Text(
         text = stringResource(id = R.string.register_from_here),
+        textDecoration = TextDecoration.Underline,
         color = colorResource(id = R.color.black),
         textAlign = TextAlign.Center,
         modifier = Modifier

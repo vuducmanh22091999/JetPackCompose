@@ -5,8 +5,8 @@
     <string name="password">パスワード</string>
     <string name="login">ログイン</string>
     <string name="login_another_account">外部アカウントでログイン</string>
-    <string name="login_facebook">Facebook</string>
-    <string name="login_google">Google</string>
-    <string name="login_apple_id">Apple ID</string>
+    <string name="login_facebook">facebook</string>
+    <string name="login_google">google</string>
+    <string name="login_apple_id">apple</string>
     <string name="register_from_here">新規会員登録はこちらから</string>
 </resources>
