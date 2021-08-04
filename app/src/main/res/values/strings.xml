@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">JetpackCompose</string>
+    <string name="forgot_password">パスワード忘れた場合はこちら</string>
+    <string name="email">メールアドレス</string>
+    <string name="password">パスワード</string>
+    <string name="login">ログイン</string>
+    <string name="login_another_account">外部アカウントでログイン</string>
+    <string name="login_facebook">facebook</string>
+    <string name="login_google">google</string>
+    <string name="login_apple_id">apple</string>
+    <string name="register_from_here">新規会員登録はこちらから</string>
 </resources>
